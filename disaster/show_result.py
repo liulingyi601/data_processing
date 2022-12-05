@@ -1,7 +1,7 @@
 import cv2
 import csv
-csv_path = "D:\liu601\project\data_processing\pos_sample.csv"
-im_path = "D:\liu601\project\data_processing\data\disaster\show\showpx.png"
+csv_path = r"D:\liu601\project\data_processing\data\disaster\result\pos_sample_shp.csv"
+im_path = r"D:\liu601\project\data_processing\data\disaster\show\showpx.png"
 img = cv2.imread(im_path)
 with open(csv_path, encoding="utf-8-sig") as f:
     reader = csv.DictReader(f)

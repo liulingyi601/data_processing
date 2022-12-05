@@ -1,12 +1,12 @@
 from dbfread import DBF
 import pdb
 import csv
-path = "D:\liu601\project\data_processing\data\地灾\数据\正样本\正样本.dbf"
-csv_path = ''
+path = r"D:\liu601\project\data_processing\data\地灾\数据\正样本\正样本.dbf"
+csv_path = r'D:\liu601\project\data_processing\data\disaster\result\pos_sample_shp.csv'
 table=DBF(path, encoding='utf-8')
 data_list = []
-F=3732630.7011880688
-C=18519948.7572919540
+F=3718899.564200
+C=18557237.499600
 A=90.0360566378
 E=-90.0360566378
 for data in table:
