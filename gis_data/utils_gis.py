@@ -3,15 +3,15 @@ import pdb
 def convert_uint8(img, keep=None):
     if keep is None:
         keep = gen_mask(img)
-    pdb.set_trace()
+    # pdb.set_trace()
     if len(img.shape)==2:
         img[keep] = ((img[keep]-img[keep].min())/(img[keep].max()-img[keep].min())*255)
-        img[~keep]=255
+        img[~keep]=128
     else:
         for i in range(img.shape[2]):
             img_b = img[:,:,i]
             img_b[keep] = ((img_b[keep]-img_b[keep].min())/(img_b[keep].max()-img_b[keep].min())*255)
-            img_b[~keep]=255
+            img_b[~keep]=128
             img[:,:,i] = img_b
     img = img.astype(np.uint8)
     return img

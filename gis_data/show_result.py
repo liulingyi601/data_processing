@@ -16,8 +16,8 @@ def show_result(img_path, pos_points_path, neg_points_path, result_path):
 
     if data.shape[2] ==1:
         data = np.tile(data,3)
-    if data.dtype!='uint8':
-        data = convert_uint8(data)
+    # if data.dtype!='uint8':
+    data = convert_uint8(data)
     with open(pos_points_path, encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -37,16 +37,16 @@ if __name__=='__main__':
     pos_points_path = r'D:\liu601\project\data_processing\data\disaster\result\pos_samples.csv'
     neg_points_path = r'D:\liu601\project\data_processing\data\disaster\result\neg_samples.csv'
     result_dir = r'D:\liu601\project\data_processing\data\disaster\image'
-    file_path=r'D:\liu601\project\data_processing\data\disaster\data\TDLX.tif'
-    name = os.path.basename(file_path)
-    result_path = result_dir + '/' + name.replace('tif', 'png')
-    show_result(file_path, pos_points_path, neg_points_path, result_path)
+    # file_path=r'D:\liu601\project\data_processing\data\disaster\data\LWJL.tif'
+    # name = os.path.basename(file_path)
+    # result_path = result_dir + '/' + name.replace('tif', 'png')
+    # show_result(file_path, pos_points_path, neg_points_path, result_path)
 
-    # file_list = glob(im_dir + '/*.tif')
-    # for file_path in file_list:
-    #     name = os.path.basename(file_path)
-    #     result_path = result_dir + '/' + name.replace('tif', 'png')
-    #     show_result(file_path, pos_points_path, neg_points_path, result_path)
+    file_list = glob(im_dir + '/*.tif')
+    for file_path in file_list:
+        name = os.path.basename(file_path)
+        result_path = result_dir + '/' + name.replace('tif', 'png')
+        show_result(file_path, pos_points_path, neg_points_path, result_path)
     
     # ds = gdal.Open(im_path)
     # # pdb.set_trace()
