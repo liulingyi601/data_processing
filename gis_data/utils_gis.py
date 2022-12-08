@@ -3,7 +3,7 @@ import pdb
 def convert_uint8(img, keep=None):
     if keep is None:
         keep = gen_mask(img)
-
+    pdb.set_trace()
     if len(img.shape)==2:
         img[keep] = ((img[keep]-img[keep].min())/(img[keep].max()-img[keep].min())*255)
         img[~keep]=255
@@ -22,8 +22,11 @@ def gen_mask(img, loc=None):
         mask = img!=img[0,0]
     else:
         mask = img!=img[loc[0], loc[1]]
+    if img.dtype == 'int8':
+        mask[img==-128]=False
     if len(mask.shape)==3:
         mask = mask.any(-1)
+    
     return mask
 class GeoTransform(object):
     def __init__(self, transform_data):
