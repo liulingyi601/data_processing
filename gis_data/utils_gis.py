@@ -6,12 +6,12 @@ def convert_uint8(img, keep=None):
     # pdb.set_trace()
     if len(img.shape)==2:
         img[keep] = ((img[keep]-img[keep].min())/(img[keep].max()-img[keep].min())*255)
-        img[~keep]=128
+        img[~keep]=0
     else:
         for i in range(img.shape[2]):
             img_b = img[:,:,i]
             img_b[keep] = ((img_b[keep]-img_b[keep].min())/(img_b[keep].max()-img_b[keep].min())*255)
-            img_b[~keep]=128
+            img_b[~keep]=0
             img[:,:,i] = img_b
     img = img.astype(np.uint8)
     return img
@@ -43,3 +43,4 @@ class GeoTransform(object):
         gx = self.off_x + px*self.relosution_x + py * self.rotation_x
         gy = self.off_y + py*self.relosution_y + px * self.rotation_y
         return gx, gy
+        
