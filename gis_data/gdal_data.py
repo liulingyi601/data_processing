@@ -46,10 +46,11 @@ def write_image(filename,proj,trans,image_data):
 if __name__=='__main__':
     ori_path=r"D:\liu601\project\data_processing\data\disaster\data\NDVI.tif"
     det_path=r"D:\liu601\project\data_processing\data\disaster\data\LWJL.tif"
-    output_path = r"D:\liu601\project\data_processing\data\disaster\data\NDVI_det.tif"
+    output_path = r"D:\liu601\project\data_processing\data\disaster\data\NDVI.tif"
     ori_width,ori_height,ori_image_proj,ori_image_geotrans,ori_image_band,ori_iamge_data=read_image(ori_path)
     det_width,det_height,det_image_proj,det_image_geotrans,det_image_band,det_iamge_data=read_image(det_path)
     det_img = convert_img(ori_iamge_data,ori_image_geotrans,det_image_geotrans,det_width,det_height)
+    det_img[det_img<-1]=-255
     write_image(output_path,det_image_proj,det_image_geotrans,det_img)
 
 

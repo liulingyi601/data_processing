@@ -36,7 +36,7 @@ if __name__=='__main__':
     im_dir = r'D:\liu601\project\data_processing\data\disaster\data'
     pos_points_path = r'D:\liu601\project\data_processing\data\disaster\result\pos_samples.csv'
     neg_points_path = r'D:\liu601\project\data_processing\data\disaster\result\neg_samples.csv'
-    result_dir = r'D:\liu601\project\data_processing\data\disaster\image'
+    result_dir = r'D:\liu601\project\data_processing\data\disaster\result_show'
     # file_path=r'D:\liu601\project\data_processing\data\disaster\data\LWJL.tif'
     # name = os.path.basename(file_path)
     # result_path = result_dir + '/' + name.replace('tif', 'png')

@@ -19,7 +19,6 @@ if __name__=='__main__':
         if mask is None:
             mask = copy.deepcopy(data_mask)
             diff_mask = copy.deepcopy(data_mask)
-        pdb.set_trace()
         diff_mask[mask!=data_mask]=-1
         mask[mask!=data_mask] = 0
     diff_masks_uint8 = diff_mask.astype(np.uint8)
@@ -28,6 +27,8 @@ if __name__=='__main__':
     diff_masks_uint8[diff_mask==0]=128
     pdb.set_trace()
     cv2.imwrite('mask.png', diff_masks_uint8.copy())
+
+
         
     
 
